@@ -15,6 +15,7 @@ import '../widgets/file_picker.dart';
 import '../services/mic_service.dart';
 import '../services/playback_service.dart';
 import '../services/websocket_service.dart';
+import '../config.dart';
 
 late List<CameraDescription> _cameras;
 
@@ -78,7 +79,7 @@ class _ChatScreenState extends State<ChatScreen> {
     _incomingAudioSubscription = null;
 
     try {
-      await _wsService.connect('ws://127.0.0.1:8000/ws');
+      await _wsService.connect(wsUrl);
     } catch (e) {
       debugPrint('Could not connect to backend: $e');
       return;
@@ -126,7 +127,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Future<void> postResume(PlatformFile file) async {
     var request = http.MultipartRequest(
       'POST',
-      Uri.parse('http://127.0.0.1:8000/resume'),
+      Uri.parse('$httpBase/resume'),
     );
     final ext = file.extension?.toLowerCase();
     MediaType mediaType;
