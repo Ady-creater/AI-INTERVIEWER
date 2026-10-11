@@ -1,0 +1,37 @@
+# Environment variables and secrets
+.env
+**/.env
+!.env.example
+uploaded_files/
+assets/
+
+# Python-generated files
+__pycache__/
+*.pyc
+*.py[oc]
+*.py[cod]
+.dart_tool/
+build/
+dist/
+wheels/
+*.egg-info
+
+
+# Virtual environments
+venv/
+.venv/
+
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+
+# IDE and editor files
+.vs/
+.idea/
+*.iml
+
+# Temporary files
+tempCodeRunnerFile.*
