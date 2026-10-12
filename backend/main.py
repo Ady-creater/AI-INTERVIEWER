@@ -43,7 +43,7 @@ def get_live_model_name() -> str:
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://your-project.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
