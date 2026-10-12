@@ -43,7 +43,7 @@ def get_live_model_name() -> str:
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://your-project.vercel.app"],
+    allow_origins=["https://ai-interviewer-frontend-fawn.vercel.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -68,7 +68,6 @@ UPLOAD_DIR = BASE_DIR / "uploaded_files"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 
-db = {}
 
 @app.post("/resume")
 async def upload_resume(resume: UploadFile = File(...)):
