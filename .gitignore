@@ -3,7 +3,7 @@
 **/.env
 !.env.example
 uploaded_files/
-assets/
+/backend/assets/
 
 # Python-generated files
 __pycache__/
