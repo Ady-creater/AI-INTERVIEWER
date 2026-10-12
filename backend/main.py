@@ -94,6 +94,7 @@ async def upload_resume(resume: UploadFile = File(...)):
             print("File uploaded. Extracting details...")
         extracted_details = await asyncio.to_thread(ResumeParser.extract_resume_details, file_path)
         print("Resume uploaded and parsed successfully.")
+        print(extracted_details)
         if extracted_details == {}:
             print("Unable to extract details from resume.")
             
@@ -198,7 +199,7 @@ async def websocket_endpoint(websocket: WebSocket):
             async def send_to_gemini():
                 
                 """Sends messages from the client websocket to the Gemini API."""
-                await session.send_realtime_input(text="Start the interview with a short greeting and your first question.")
+                await session.send_realtime_input(text="Start the interview with a short greeting and your first question asking for introduction.")
                 try:
                     async for message in websocket.iter_json():
                         if "type" in message and message["type"] == "ping":
